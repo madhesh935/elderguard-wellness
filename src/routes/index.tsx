@@ -14,6 +14,7 @@ import { PatientProfile } from "@/components/elderguard/PatientProfile";
 import { DeviceMonitoring } from "@/components/elderguard/DeviceMonitoring";
 import { HistoricalRecords } from "@/components/elderguard/HistoricalRecords";
 import { DashboardSkeleton } from "@/components/elderguard/DashboardSkeleton";
+import { Shield, Heart, Cpu } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,7 +55,7 @@ function Dashboard() {
           onMenu={() => setSidebarOpen(true)}
         />
 
-        <main className="mx-auto w-full max-w-7xl flex-1 space-y-6 p-4 sm:p-6">
+        <main className="mx-auto w-full max-w-7xl flex-1 space-y-8 p-4 sm:p-6 lg:p-8">
           {loading || !data ? (
             <DashboardSkeleton />
           ) : (
@@ -76,8 +77,29 @@ function Dashboard() {
               <DeviceMonitoring devices={devices} />
               <HistoricalRecords history={history} />
 
-              <footer className="border-t border-border pt-6 text-center text-xs text-muted-foreground">
-                ElderGuard · Real-Time Elderly Health &amp; Fall Monitoring · Powered by ESP32-S3 + Firebase
+              {/* Footer */}
+              <footer className="border-t border-border pt-6 pb-2">
+                <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/10">
+                      <Shield className="h-3.5 w-3.5 text-primary" />
+                    </div>
+                    <span className="font-semibold text-foreground">ElderGuard</span>
+                    <span>·</span>
+                    <span>Real-Time Elderly Health & Fall Monitoring</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="flex items-center gap-1.5">
+                      <Cpu className="h-3.5 w-3.5" /> ESP32-S3
+                    </span>
+                    <span>+</span>
+                    <span className="flex items-center gap-1.5">
+                      <Heart className="h-3.5 w-3.5 text-danger" /> Firebase
+                    </span>
+                    <span>·</span>
+                    <span>IEEE Project 2025</span>
+                  </div>
+                </div>
               </footer>
             </>
           )}
