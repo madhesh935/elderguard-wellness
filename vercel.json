@@ -1,6 +1,6 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
-  "buildCommand": "npm run build",
+  "buildCommand": "NITRO_PRESET=static npm run build",
   "outputDirectory": ".output/public",
   "framework": null,
   "rewrites": [
