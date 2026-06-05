@@ -1,4 +1,4 @@
-import { Activity, Heart, Shield, Bell, User, AlertTriangle, ClipboardList, Cpu, X } from "lucide-react";
+import { Activity, Heart, Shield, User, AlertTriangle, ClipboardList, Cpu, X } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 
 const NAV = [
