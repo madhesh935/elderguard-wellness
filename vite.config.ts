@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    build: {
+      // Suppress the 500kB chunk size warning — bundles include recharts + framer-motion
+      chunkSizeWarningLimit: 1000,
+    },
+  },
 });
