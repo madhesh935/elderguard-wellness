@@ -12,9 +12,12 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Force-enable the nitro deploy plugin outside of Lovable context.
+  // NITRO_PRESET=vercel (set in vercel.json buildCommand) then tells it to
+  // output to .vercel/output/ which Vercel auto-detects.
+  nitro: true,
   vite: {
     build: {
-      // Suppress the 500kB chunk size warning — bundles include recharts + framer-motion
       chunkSizeWarningLimit: 1000,
     },
   },
